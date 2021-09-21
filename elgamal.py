@@ -1,5 +1,5 @@
 import random
-from math import pow
+# from math import pow
 
 from params import p
 from params import g
