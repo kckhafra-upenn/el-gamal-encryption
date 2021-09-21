@@ -3,7 +3,7 @@ from math import pow
 
 from params import p
 from params import g
-
+q=(p-1)/2
 def power(a, b, c):
     x = 1
     y = a
@@ -27,7 +27,7 @@ def power(a, b, c):
 def keygen():
     sk = 0
     pk = 0
-    q=(p-1)/2
+    
     sk = random.randint(1, q)
     pk = power(g,sk,p)
     # print(sk)
