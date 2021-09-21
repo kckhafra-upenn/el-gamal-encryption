@@ -16,13 +16,13 @@ def power(a, b, c):
  
     return x % c
 
-def gcd(a, b):
-    if a < b:
-        return gcd(b, a)
-    elif a % b == 0:
-        return b
-    else:
-        return gcd(b, a % b)
+# def gcd(a, b):
+#     if a < b:
+#         return gcd(b, a)
+#     elif a % b == 0:
+#         return b
+#     else:
+#         return gcd(b, a % b)
 
 def keygen():
     sk = 0
@@ -38,6 +38,11 @@ def keygen():
 def encrypt(pk,m):
     c1 = 0
     c2 = 0
+    
+    # r= random.randint(1, q)
+    r=keygen()
+    c1= power(g,r,p)
+    c2= power(pk,r,p)
     return [c1,c2]
 
 def decrypt(sk,c):
@@ -45,3 +50,7 @@ def decrypt(sk,c):
     return m
 
 # keygen()
+a,b = 5,7
+x = pow(a,-1,b)
+assert x*a % b == 1
+print(x)
