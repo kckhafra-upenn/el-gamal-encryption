@@ -3,7 +3,7 @@ from math import pow
 
 from params import p
 from params import g
-q=(p-1)/2
+# q=(p-1)/2
 def power(a, b, c):
     x = 1
     y = a
@@ -28,7 +28,7 @@ def keygen():
     sk = 0
     pk = 0
     
-    sk = random.randint(1, q)
+    sk = random.randint(1, p)
     pk = power(g,sk,p)
     # print(sk)
     # print(pk)
@@ -39,11 +39,13 @@ def encrypt(pk,m):
     c2 = 0
     
     # r= random.randint(1, q)
-    r=random.randint(1, q)
+    r=random.randint(1, p)
     c1= power(g,r,p)
-    c2= power(pk,r,p) * m
+    # hr⋅m mod p in your code: (ab) mod c = ((a mod c) * (b mod c)) mod c
+    # pk^r*m mod p
+    c2= (power(pk,r,p)*(m%p))%p
     return [c1,c2]
-
+    
 def decrypt(sk,c):
     m = 0
     return m
