@@ -30,7 +30,6 @@ def keygen():
     q=(p-1)/2
     sk = random.randint(1, q)
     pk = power(g,sk,p)
-    
     # print(sk)
     # print(pk)
     return pk,sk
@@ -40,16 +39,16 @@ def encrypt(pk,m):
     c2 = 0
     
     # r= random.randint(1, q)
-    r=keygen()
+    r=random.randint(1, q)
     c1= power(g,r,p)
-    c2= power(pk,r,p)
+    c2= power(pk,r,p) * m
     return [c1,c2]
 
 def decrypt(sk,c):
     m = 0
     return m
 
-# keygen()
+keygen()
 # a,b = 5,7
 # x = pow(a,-1,b)
 # assert x*a % b == 1
