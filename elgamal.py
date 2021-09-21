@@ -48,9 +48,13 @@ def encrypt(pk,m):
     
 def decrypt(sk,c):
     m = 0
+    e = p-sk-1
+    m=(power(c[1],e,p)*(c[2]%p)) mod p
+    # h^r⋅m mod p in your code: (ab) mod c = ((a mod c) * (b mod c)) mod c
+    # pk^r*m mod p
     return m
 
-keygen()
+# keygen()
 # a,b = 5,7
 # x = pow(a,-1,b)
 # assert x*a % b == 1
