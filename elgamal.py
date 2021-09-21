@@ -31,8 +31,8 @@ def keygen():
     sk = random.randint(1, q)
     pk = power(g,sk,p)
     
-    print(sk)
-    print(pk)
+    # print(sk)
+    # print(pk)
     return pk,sk
 
 def encrypt(pk,m):
@@ -44,4 +44,4 @@ def decrypt(sk,c):
     m = 0
     return m
 
-keygen()
+# keygen()
