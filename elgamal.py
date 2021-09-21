@@ -4,17 +4,26 @@ from math import pow
 from params import p
 from params import g
 q=(p-1)/2
-def power(a, b, c):
-    x = 1
-    y = a
- 
-    while b > 0:
-        if b % 2 != 0:
-            x = (x * y) % c
-        y = (y * y) % c
-        b = int(b / 2)
- 
-    return x % c
+def power(A, B, C):
+     
+    # Base Cases
+    if (A == 0):
+        return 0
+    if (B == 0):
+        return 1
+     
+    # If B is Even
+    y = 0
+    if (B % 2 == 0):
+        y = exponentMod(A, B / 2, C)
+        y = (y * y) % C
+     
+    # If B is Odd
+    else:
+        y = A % C
+        y = (y * exponentMod(A, B - 1,
+                             C) % C) % C
+    return ((y + C) % C)
 
 def keygen():
     sk = 0
