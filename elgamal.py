@@ -50,7 +50,7 @@ def decrypt(sk,c):
     return m
 
 # keygen()
-a,b = 5,7
-x = pow(a,-1,b)
-assert x*a % b == 1
-print(x)
+# a,b = 5,7
+# x = pow(a,-1,b)
+# assert x*a % b == 1
+# print(x)
