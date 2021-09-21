@@ -15,14 +15,13 @@ def power(A, B, C):
     # If B is Even
     y = 0
     if (B % 2 == 0):
-        y = exponentMod(A, B / 2, C)
+        y = power(A, B / 2, C)
         y = (y * y) % C
      
     # If B is Odd
     else:
         y = A % C
-        y = (y * exponentMod(A, B - 1,
-                             C) % C) % C
+        y = (y * power(A, B - 1, C) % C) % C
     return ((y + C) % C)
 
 def keygen():
